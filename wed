@@ -1,0 +1,54 @@
+my-shopify-theme/
+├── assets/
+│   └── styles.css
+├── config/
+│   └── settings_schema.json  
+├── layout/
+│   └── theme.liquid          
+├── templates/
+│   └── index.liquid
+│   └── product.liquid
+├── sections/
+│   └── water-gun-featured.liquid
+├── snippets/
+├── locales/
+│   └── en.default.json
+[
+  {
+    "name": "Theme settings",
+    "settings": [water-gun-featured.liquid]
+  }
+]
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ page_title }}</title>
+    {{ content_for_header }}
+    <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}">
+  </head>
+  <body>
+    {{ content_for_layout }}
+  </body>
+</html>
+body {
+  font-family: sans-serif;
+}
+{% section 'water-gun-featured' %}
+npm install -g @shopify/cli
+shopify login
+shopify theme dev
+# Initialize Git if you haven't
+git init
+
+# Create branch for the theme
+git checkout -b theme-upload
+
+# Add and commit files
+git add .
+git commit -m "Initial commit of Water Gun Fun theme"
+
+# Push to GitHub (replace URL with your repo)
+git remote add origin https://github.com/yourusername/your-repo.git
+git push -u origin theme-upload
+shopify login
+shopify theme push --branch theme-upload
