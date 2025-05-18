@@ -52,3 +52,4 @@ git remote add origin https://github.com/yourusername/your-repo.git
 git push -u origin theme-upload
 shopify login
 shopify theme push --branch theme-upload
+shopify theme check
